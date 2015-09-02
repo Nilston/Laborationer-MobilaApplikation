@@ -1,17 +1,55 @@
 package com.example.antonnilsson.lab1b;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
+    private EditText etName;
+    private EditText etPhone;
+    private EditText etMail;
+    private TextView tvSummary;
+    private Button btnSummary;
+    private Button btnColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeButtons();
+    }
+
+    private void initializeButtons() {
+        etName = (EditText)findViewById(R.id.editText);
+        etPhone = (EditText)findViewById(R.id.editText2);
+        etMail = (EditText)findViewById(R.id.editText3);
+        btnSummary = (Button)findViewById(R.id.button);
+        btnColor = (Button)findViewById(R.id.button2);
+
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvSummary.setTextColor(Color.CYAN);
+                if(tvSummary.getCurrentTextColor()==Color.CYAN){
+                    tvSummary.setTextColor(Color.RED);
+                }else{
+                    tvSummary.setTextColor(Color.CYAN);
+                }
+            }
+        });
+        btnSummary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvSummary.setText("1. " + etName.getText() + "2. " + etPhone.getText() + "3. " + etMail.getText());
+            }
+        });
     }
 
     @Override
