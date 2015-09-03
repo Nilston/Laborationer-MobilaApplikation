@@ -47,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
         btnSummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvSummary.setText("1. " + etName.getText() + "2. " + etPhone.getText() + "3. " + etMail.getText());
+                tvSummary.setText("1. " + etName.getText().toString() + "2. " + etPhone.getText().toString() + "3. " + etMail.getText().toString());
             }
         });
     }
